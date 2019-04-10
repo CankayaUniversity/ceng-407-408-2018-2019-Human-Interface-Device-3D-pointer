@@ -15,7 +15,8 @@ public class move : MonoBehaviour
     private static Vector3 TopSensor { get; set; }
     private static Vector3 RightSensor { get; set; }
 
-    SerialPort sp = new SerialPort("COM4", 9600);
+    
+    SerialPort sp = new SerialPort("COM8", 9600);
 
     // Use this for initialization
     void Start()
@@ -24,7 +25,8 @@ public class move : MonoBehaviour
         BackSensor = new Vector3(0, 37, 37); // returns Y
         TopSensor = new Vector3(37, 37, 50); // returns Z
         RightSensor = new Vector3(37, 0, 37); // returns X
-
+        
+        
         sp.Open();
         sp.ReadTimeout = 1;
     }
@@ -62,14 +64,14 @@ public class move : MonoBehaviour
             }
         }
     }
-    void MoveObject(Vector3 Loc)
+    private void MoveObject(Vector3 Loc)
     {
         
-
+        transform.position = Loc;
 
     }
 
-    public static Vector3 trilaterate2(float[] L)
+    private static Vector3 trilaterate2(float[] L)
     {
         //caluculate coords in plane of stations
         double LB1 = Math.Sqrt((TopSensor.x - BackSensor.x) * (TopSensor.x - BackSensor.x) + (TopSensor.y - BackSensor.y) * (TopSensor.y - BackSensor.y) + (TopSensor.z - BackSensor.z) * (TopSensor.z - BackSensor.z));
