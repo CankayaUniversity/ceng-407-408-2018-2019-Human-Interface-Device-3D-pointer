@@ -16,7 +16,9 @@ public class move : MonoBehaviour
     private static Vector3 RightSensor { get; set; }
 
     
-    SerialPort sp = new SerialPort("COM8", 9600);
+    SerialPort spBack = new SerialPort("COM8", 9600);
+    SerialPort spTop = new SerialPort("COM8", 4800);
+    SerialPort spRight = new SerialPort("COM8", 2400);
 
     // Use this for initialization
     void Start()
@@ -27,8 +29,12 @@ public class move : MonoBehaviour
         RightSensor = new Vector3(37, 0, 37); // returns X
         
         
-        sp.Open();
-        sp.ReadTimeout = 1;
+        spBack.Open();
+        spBack.ReadTimeout = 1;
+        spTop.Open();
+        spTop.ReadTimeout = 1;
+        spRight.Open();
+        spRight.ReadTimeout = 1;
     }
 
     // Update is called once per frame
@@ -42,21 +48,22 @@ public class move : MonoBehaviour
                 float[] L = new float[3];
                 
                 // the order in SerialPort > Back Top Right
-                float value = sp.ReadByte();
+                // BACK
+                float value = spBack.ReadByte();
                 if (value > 20 && value < 50)
                 {
                     L[0] = value;
                     BackText.text = value.ToString();
                 }
-
-                value = sp.ReadByte();
+                // TOP
+                value = spTop.ReadByte();
                 if (value > 20 && value < 50)
                 {
                     L[1] = value;
                     TopText.text = value.ToString();
                 }
-                
-                value = sp.ReadByte();
+                // RIGHT
+                value = spRight.ReadByte();
                 if (value > 20 && value < 50)
                 {
                     L[2] = value;
