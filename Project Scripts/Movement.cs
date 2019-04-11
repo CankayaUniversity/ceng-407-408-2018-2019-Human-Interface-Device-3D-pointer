@@ -21,7 +21,7 @@ public class move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // the order in SerialPort > Back Top Right
+        
         BackSensor = new Vector3(0, 37, 37); // returns Y
         TopSensor = new Vector3(37, 37, 50); // returns Z
         RightSensor = new Vector3(37, 0, 37); // returns X
@@ -40,17 +40,28 @@ public class move : MonoBehaviour
             try
             {
                 float[] L = new float[3];
+                
+                // the order in SerialPort > Back Top Right
                 float value = sp.ReadByte();
-                L[0] = value;
-                BackText.text = value.ToString();
+                if (value > 20 && value < 50)
+                {
+                    L[0] = value;
+                    BackText.text = value.ToString();
+                }
 
                 value = sp.ReadByte();
-                L[1] = value;
-                TopText.text = value.ToString();
-
+                if (value > 20 && value < 50)
+                {
+                    L[1] = value;
+                    TopText.text = value.ToString();
+                }
+                
                 value = sp.ReadByte();
-                L[2] = value;
-                RightText.text = value.ToString();
+                if (value > 20 && value < 50)
+                {
+                    L[2] = value;
+                    RightText.text = value.ToString();
+                }
 
                 Vector3 Loc = trilaterate2(L);
 
