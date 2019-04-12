@@ -21,7 +21,8 @@ NewPing sonar3(RIGHT_TRIG_PIN,RIGHT_ECHO_PIN,MAX_DISTANCE);
 
 
 void setup() {
-  Serial.begin(9600);
+  
+  
 }
 
 void loop() {
@@ -29,18 +30,23 @@ void loop() {
   unsigned int uS1 = sonar1.ping();
   unsigned int uS2 = sonar2.ping();
   unsigned int uS3 = sonar3.ping();
-
+  
+  Serial.begin(9600);
+  Serial.write(uS1 / US_ROUNDTRIP_CM);
   Serial.print("BACK: ");
   Serial.print(uS1 / US_ROUNDTRIP_CM);
-  Serial.print("cm"); 
+  Serial.print("cm\n"); 
+  Serial.end();
+  Serial.begin(4800);
+  Serial.write(uS2 / US_ROUNDTRIP_CM);
   Serial.print(",\tTOP: ");
   Serial.print(uS2 / US_ROUNDTRIP_CM);
-  Serial.print("cm");
+  Serial.print("cm\n");
+  Serial.end();
+  Serial.begin(2400);
+  Serial.write(uS3 / US_ROUNDTRIP_CM);
   Serial.print(",\tRIGHT: ");
   Serial.print(uS3 / US_ROUNDTRIP_CM);
   Serial.print("cm\n");
-  
-  Serial.write(uS1 / US_ROUNDTRIP_CM);
-  Serial.write(uS2 / US_ROUNDTRIP_CM);
-  Serial.write(uS3 / US_ROUNDTRIP_CM);
+  Serial.end();
 }
