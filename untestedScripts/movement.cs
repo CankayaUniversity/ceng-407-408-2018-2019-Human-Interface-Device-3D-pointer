@@ -15,7 +15,7 @@ public class move : MonoBehaviour
     private static Vector3 TopSensor { get; set; }
     private static Vector3 RightSensor { get; set; }
 
-    
+
     SerialPort spBack = new SerialPort("COM8", 9600);
     SerialPort spTop = new SerialPort("COM8", 4800);
     SerialPort spRight = new SerialPort("COM8", 2400);
@@ -23,12 +23,12 @@ public class move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
         BackSensor = new Vector3(0, 37, 37); // returns Y
         TopSensor = new Vector3(37, 37, 50); // returns Z
         RightSensor = new Vector3(37, 0, 37); // returns X
-        
-        
+
+
         spBack.Open();
         spBack.ReadTimeout = 1;
         spTop.Open();
@@ -41,12 +41,12 @@ public class move : MonoBehaviour
     void Update()
     {
 
-        if (sp.IsOpen)
+        if (spBack.IsOpen && spTop.IsOpen && spRight.IsOpen)
         {
             try
             {
                 float[] L = new float[3];
-                
+
                 // the order in SerialPort > Back Top Right
                 // BACK
                 float value = spBack.ReadByte();
@@ -84,7 +84,7 @@ public class move : MonoBehaviour
     }
     private void MoveObject(Vector3 Loc)
     {
-        
+
         transform.position = Loc;
 
     }
