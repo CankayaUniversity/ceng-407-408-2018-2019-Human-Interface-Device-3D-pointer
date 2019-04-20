@@ -58,7 +58,8 @@ public class move : MonoBehaviour
             byte[] ms = new byte[vector.];
 
 
-            sp.ReadLine();
+            //sp.ReadExisting(); Reads everything in the baud.   
+            
             
             
             
