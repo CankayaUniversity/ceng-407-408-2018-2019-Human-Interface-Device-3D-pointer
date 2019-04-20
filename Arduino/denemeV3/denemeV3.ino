@@ -66,7 +66,7 @@ void loop() {
 
   trilaterate2(L);
  
-  //Serial.write(vector);
+  
   Serial.print(" Back:");
   Serial.print(uS1);
   Serial.print(", Top: ");
@@ -80,12 +80,8 @@ void loop() {
   Serial.print(", ");
   Serial.print(Result.z);
   Serial.print("\n");
-  
-  
-  
-  Serial.print("cm\n"); 
 
-
+  Serial.write(Result);
   
 }
 
