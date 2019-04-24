@@ -64,6 +64,17 @@ void loop() {
 
   trilaterate2(L);
  
+  
+  
+  //Serial.write(String(Result.x));
+  //Serial.write("#");
+  //Serial.write(String(Result.y));
+  //Serial.write("#");
+  //Serial.write(String(Result.z));
+  //Serial.write("\n");
+  
+  
+  
   //Serial.write(vector);
   Serial.print(" Back:");
   Serial.print(uS1);
