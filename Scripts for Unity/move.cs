@@ -42,7 +42,7 @@ public class move : MonoBehaviour
         try
         {
             sp.Open();
-            sp.ReadTimeout = 1;
+            sp.ReadTimeout = 1; // causes delay
         }
         catch (Exception)
         {
@@ -64,7 +64,7 @@ public class move : MonoBehaviour
             
             // use here
             //string s = sp.ReadLine();
-            //string[] spls = s.Split(' ');
+            //string[] spls = s.Split('#');
             //int uS1 = Convert.ToInt32(spls[0]);
             //int uS2 = Convert.ToInt32(spls[1]);
             //int uS3 = Convert.ToInt32(spls[2]);
