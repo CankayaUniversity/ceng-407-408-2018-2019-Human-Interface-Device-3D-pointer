@@ -62,7 +62,7 @@ public class move : MonoBehaviour
             
             
             
-            
+            // use here
             //string s = sp.ReadLine();
             //string[] spls = s.Split(' ');
             //int uS1 = Convert.ToInt32(spls[0]);
