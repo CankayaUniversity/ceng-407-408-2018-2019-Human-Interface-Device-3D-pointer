@@ -81,7 +81,7 @@ void loop() {
   
   _X=_tX/7;
   _Y=_tY/7;
-  _Z=_tZ/;
+  _Z=_tZ/7;
   
   //Serial.print(String(Result.x));
   Serial.print(String(_X));
