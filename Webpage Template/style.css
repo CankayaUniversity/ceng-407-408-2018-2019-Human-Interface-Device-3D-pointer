@@ -45,11 +45,18 @@
 
    //////////////////////////*/
 
-.bottom-left {
+.bottom-left-1 {
   position: absolute;
   bottom: 8px;
   left: 16px;
 }
+
+.cont {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
 
 body {
 	font-family: 'Roboto', sans-serif;
