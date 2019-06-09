@@ -49,11 +49,12 @@
   position: absolute;
   bottom: 8px;
   left: 16px;
+  text-align: left;
 }
 
 .cont {
   position: relative;
-  text-align: center;
+  text-align: left;
   color: white;
 }
 
