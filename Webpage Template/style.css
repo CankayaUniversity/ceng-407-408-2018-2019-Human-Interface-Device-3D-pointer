@@ -45,12 +45,10 @@
 
    //////////////////////////*/
 
-#asd {
-    display: inline-block;
-}
-
-#asd1 {
-    display: inline-block;
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
 }
 
 body {
